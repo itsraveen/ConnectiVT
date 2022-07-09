@@ -2,18 +2,31 @@
 
 import 'package:flutter/material.dart';
 
+import '../screens/projects_detail_screeen.dart';
+
 class ProjectItem extends StatelessWidget {
   final String title;
   final String image;
 
   const ProjectItem(this.title, this.image);
 
+  void selectRoom(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(ProjectsDetailScreen.routeName, arguments: {
+      'title': title,
+      'image': image,
+    }).then((result) {
+      if (result != null) {
+        // removeItem(result);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = double.infinity;
     var height = MediaQuery.of(context).size.height / 3 - 100;
     return InkWell(
-      onTap: () => {},
+      onTap: () => selectRoom(context),
       splashColor: Colors.amber.shade200,
       borderRadius: BorderRadius.circular(5),
       child: Container(
