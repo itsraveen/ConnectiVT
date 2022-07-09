@@ -5,7 +5,7 @@ List<Post> posts = [
   Post(
     username: "Rish",
     postimage:
-        'https://img-cdn.inc.com/image/upload/images/panoramic/GettyImages-1236193308_505783_sizvhl.jpg',
+        'https://live.staticflickr.com/65535/52186896930_9ec08a0913_6k.jpg',
     posttext:
         "I'm proud to say that I'm a ML Master. Also first day at work, kinda nervous",
     timeAgo: '2d',

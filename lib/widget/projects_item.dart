@@ -11,14 +11,13 @@ class ProjectItem extends StatelessWidget {
   const ProjectItem(this.title, this.image);
 
   void selectRoom(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(ProjectsDetailScreen.routeName, arguments: {
-      'title': title,
-      'image': image,
-    }).then((result) {
-      if (result != null) {
-        // removeItem(result);
-      }
-    });
+    Navigator.of(ctx).pushNamed(
+      ProjectsDetailScreen.routeName,
+      arguments: {
+        'title': title,
+        'image': image,
+      },
+    );
   }
 
   @override

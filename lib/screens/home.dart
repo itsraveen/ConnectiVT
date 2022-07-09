@@ -1,4 +1,7 @@
+import 'package:connectivt/screens/experience.dart';
+import 'package:connectivt/screens/preference.dart';
 import 'package:connectivt/screens/profile_screen.dart';
+import 'package:connectivt/screens/projects_detail_screeen.dart';
 import 'package:connectivt/screens/tiktok_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +20,16 @@ class HomePage extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        ProjectsDetailScreen.routeName: (context) => ProjectsDetailScreen(),
+        Preference.routeName: (context) => Preference(),
+        Experience.routeName: (context) => Experience()
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+            builder: (context) => MyHomePage(title: 'ConnectiVT'));
+      },
     );
   }
 }
