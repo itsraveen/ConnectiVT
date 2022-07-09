@@ -6,15 +6,18 @@ import '../data/data.dart';
 
 class Experience extends StatelessWidget {
   static const routeName = '/experience';
-  String org1 = 'Hi';
+  String org1 = 'Elderly Digital Workshop';
   String year1 = '2020';
-  String desc1 = 'sdfsdf';
-  String org2 = 'Hi';
-  String year2 = '2020';
-  String desc2 = 'sdfsdf';
-  String org3 = 'Hi';
+  String desc1 =
+      'Oversaw the ideation and implementation of the project. Went down to supervise the progress.';
+  String org2 = 'CodeCamp 2022';
+  String year2 = '2022';
+  String desc2 =
+      'Taught underprivileged children how to code in python using Spark AI';
+  String org3 = 'Wikiton';
   String year3 = '2023';
-  String desc3 = 'sdfsdf';
+  String desc3 =
+      'Won the competition with flying colours, making a ground-breaking social good application.';
   Experience({Key? key}) : super(key: key);
 
   @override
