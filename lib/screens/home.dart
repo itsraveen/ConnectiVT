@@ -195,15 +195,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: _currrentIndex == 1
-                ? const Icon(Icons.badge_rounded, size: 26)
-                : const Icon(Icons.badge_outlined, size: 26),
-            label: 'Jobs',
+                ? const Icon(Icons.handshake, size: 26)
+                : const Icon(Icons.handshake_outlined, size: 26),
+            label: 'V.O.',
           ),
           BottomNavigationBarItem(
             icon: _currrentIndex == 2
-                ? const Icon(Icons.add_circle_rounded, size: 26)
-                : const Icon(Icons.add_circle_outline_rounded, size: 26),
-            label: 'Post',
+                ? const Icon(Icons.movie_filter_rounded, size: 26)
+                : const Icon(Icons.movie_filter_outlined, size: 26),
+            label: 'Veels',
           ),
           BottomNavigationBarItem(
             icon: _currrentIndex == 3
