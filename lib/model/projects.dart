@@ -7,6 +7,7 @@ class Projects {
   final int fundings_needed;
   final String manpower;
   final String organisation;
+  final int likes;
 
   bool isFavourite;
 
@@ -19,6 +20,7 @@ class Projects {
     required this.fundings_needed,
     required this.manpower,
     required this.organisation,
+    required this.likes,
     this.isFavourite = false,
   });
 }

@@ -79,7 +79,7 @@ List<Post> posts = [
 var PROJECTS_CATEGORIES = [
   Projects(
     name: 'Batam Build',
-    image: 'assets/images/batamBuild.jpg',
+    image: 'https://nuscomputing.com/assets/LoZhaoWei.jpg',
     gallery: [
       'assets/images/batamBuild1.webp',
       'assets/images/batamBuild2.jpeg',
@@ -91,10 +91,11 @@ var PROJECTS_CATEGORIES = [
     fundings_needed: 100000,
     manpower: "27 / 100",
     organisation: "Habitat for Humanity Singapore",
+    likes: 204,
   ),
   Projects(
     name: 'Global Village',
-    image: 'assets/images/globalVillage.jpg',
+    image: 'https://nuscomputing.com/assets/AlyssaSavier.jpg',
     gallery: [
       'assets/images/globalVillage1.jpg',
       'assets/images/globalVillage2.jpg',
@@ -106,10 +107,11 @@ var PROJECTS_CATEGORIES = [
     fundings_needed: 100000,
     manpower: "27 / 100",
     organisation: "Habitat for Humanity Singapore",
+    likes: 200,
   ),
   Projects(
     name: 'V·Village',
-    image: 'assets/images/habitat1.jpeg',
+    image: 'https://nuscomputing.com/assets/RoyChua.jpg',
     gallery: [
       'assets/images/virtualVillage1.jpg',
       'assets/images/virtualVillage2.jpg',
@@ -121,5 +123,22 @@ var PROJECTS_CATEGORIES = [
     fundings_needed: 100000,
     manpower: "27 / 100",
     organisation: "Habitat for Humanity Singapore",
+    likes: 20,
+  ),
+  Projects(
+    name: 'V·Village',
+    image: 'https://nuscomputing.com/assets/RoyChua.jpg',
+    gallery: [
+      'assets/images/virtualVillage1.jpg',
+      'assets/images/virtualVillage2.jpg',
+      'assets/images/virtualVillage3.jpg',
+    ],
+    description:
+        "V·Village (Virtual Village) is a way for you to transport yourself live to a Habitat house building project you support, wherever it may be in the world. Although it has been two years since we have been unable to travel for overseas builds, we still firmly believe that we have a responsibility to fight poverty not just locally but support overseas housing needs. Many families have a hard time thriving at home during the pandemic. Donate and witness the house transformation here in our time lapse photo. Your donation will go a long way to ensure that more homeowners have a safe and secure place to call home.",
+    fundings_recieved: 0,
+    fundings_needed: 100000,
+    manpower: "27 / 100",
+    organisation: "Habitat for Humanity Singapore",
+    likes: 20,
   ),
 ];

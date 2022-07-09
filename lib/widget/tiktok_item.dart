@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class HomeTokItem extends StatelessWidget {
+class HomeTokItem extends StatefulWidget {
   final String title;
   final String image;
   final int funding_recieved;
   final int funding_needed;
   final String organisation;
+  int _likes;
 
   HomeTokItem(
     this.title,
@@ -13,7 +14,30 @@ class HomeTokItem extends StatelessWidget {
     this.funding_recieved,
     this.funding_needed,
     this.organisation,
+    this._likes,
   );
+
+  @override
+  State<HomeTokItem> createState() => _HomeTokItemState(_likes);
+}
+
+class _HomeTokItemState extends State<HomeTokItem> {
+  var likes;
+  var _firstPress = true;
+
+  _HomeTokItemState(this.likes);
+
+  void _incrementCounter() {
+    setState(() {
+      likes++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      likes--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +49,7 @@ class HomeTokItem extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(image),
+                image: NetworkImage(widget.image),
                 fit: BoxFit.cover,
               ),
             ),
@@ -36,7 +60,7 @@ class HomeTokItem extends StatelessWidget {
             child: SizedBox(
               child: Container(
                 width: 500,
-                height: 180,
+                height: 120,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
@@ -44,7 +68,8 @@ class HomeTokItem extends StatelessWidget {
                     colors: [
                       // Colors.red,
                       Colors.black,
-                      Colors.black54,
+                      Colors.black26,
+                      Colors.black12
                     ],
                   ),
                 ),
@@ -52,7 +77,7 @@ class HomeTokItem extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 120,
+            bottom: 60,
             right: 10,
             child: Container(
               padding: const EdgeInsets.symmetric(
@@ -60,7 +85,7 @@ class HomeTokItem extends StatelessWidget {
                 horizontal: 20,
               ),
               child: Text(
-                title,
+                widget.title,
                 style: const TextStyle(
                   fontSize: 32,
                   color: Colors.white,
@@ -72,7 +97,7 @@ class HomeTokItem extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 100,
+            bottom: 35,
             right: 10,
             child: Container(
               padding: const EdgeInsets.symmetric(
@@ -80,7 +105,7 @@ class HomeTokItem extends StatelessWidget {
                 horizontal: 20,
               ),
               child: Text(
-                organisation,
+                widget.organisation,
                 style: const TextStyle(
                   fontSize: 22,
                   color: Colors.white,
@@ -91,132 +116,51 @@ class HomeTokItem extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
-            bottom: 73,
-            right: 220,
-            child: Icon(
-              Icons.monetization_on_outlined,
-              color: Colors.white,
+          Positioned(
+            bottom: 300,
+            right: 10,
+            child: Container(
+              child: IconButton(
+                onPressed: () => {},
+                icon: Icon(Icons.share),
+              ),
             ),
           ),
           Positioned(
-            bottom: 25,
-            right: 28,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(
-                  Colors.white,
-                ),
-                backgroundColor: MaterialStateProperty.all<Color>(
-                  Colors.blue.shade200,
-                ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                ),
+            bottom: 250,
+            right: 10,
+            child: Container(
+              child: IconButton(
+                onPressed: () {
+                  if (_firstPress) {
+                    _incrementCounter();
+                    _firstPress = false;
+                  } else {
+                    _decrementCounter();
+                    _firstPress = true;
+                  }
+                },
+                icon: _firstPress
+                    ? Icon(Icons.thumb_up)
+                    : const Icon(
+                        Icons.thumb_up,
+                        color: Colors.blue,
+                      ),
               ),
-              onPressed: () => startAddNewDonation(
-                  context), //=> showAllAchievements(context),
-              child: Container(
-                alignment: Alignment.center,
-                height: 30,
-                width: 90,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      50,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.only(
-                              top: 3.0,
-                            ),
-                            child: const Text(
-                              'Donate',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+            ),
+          ),
+          Positioned(
+            bottom: 240,
+            right: 22,
+            child: Container(
+              child: Text(
+                likes.toString(),
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ),
         ],
       ),
-    );
-  }
-
-  final _amountController = TextEditingController();
-
-  startAddNewDonation(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text('Donate Now'),
-          content: TextField(
-            controller: _amountController,
-            keyboardType: TextInputType.number,
-          ),
-          actions: [
-            ElevatedButton(
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(
-                  Colors.white,
-                ),
-                backgroundColor: MaterialStateProperty.all<Color>(
-                  Colors.blue.shade200,
-                ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    // side: const BorderSide(
-                    //   color: Colors.red,
-                    // ),
-                  ),
-                ),
-              ),
-              child: const Text("Submit"),
-              onPressed: () {
-                if (_amountController.text.isEmpty ||
-                    double.parse(_amountController.text) <= 0) {
-                } else {
-                  Navigator.of(context).pop();
-                  _amountController.clear();
-                  const snackBar = SnackBar(
-                    content: Text(
-                      'You have just made having a home possible for some kids!',
-                      style: TextStyle(
-                        fontSize: 15.0,
-                      ),
-                    ),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                }
-              },
-            )
-          ],
-          // onTap: () {},
-          // child: const Donation(),
-          // behavior: HitTestBehavior.opaque,
-        );
-      },
     );
   }
 }

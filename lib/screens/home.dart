@@ -3,6 +3,7 @@ import 'package:connectivt/screens/tiktok_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
+import 'projects_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -45,15 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
         _widgetBody = HomeScreen();
       } else if (index == 1) {
         _currrentIndex = index;
-        _widgetBody = ProfileScreen();
+        _widgetBody = ProjectsScreen();
       } else if (index == 2) {
         _currrentIndex = index;
         _widgetBody = HomeTok();
       } else if (index == 3) {
         _currrentIndex = index;
-        _widgetBody = const Center(
-          child: Text('5th'),
-        );
+        _widgetBody = ProfileScreen();
       }
     });
   }
@@ -196,9 +195,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: _currrentIndex == 1
-                ? const Icon(Icons.account_circle_sharp, size: 26)
-                : const Icon(Icons.account_circle_sharp, size: 26),
-            label: 'Profile',
+                ? const Icon(Icons.badge_rounded, size: 26)
+                : const Icon(Icons.badge_outlined, size: 26),
+            label: 'Jobs',
           ),
           BottomNavigationBarItem(
             icon: _currrentIndex == 2
@@ -207,10 +206,10 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Post',
           ),
           BottomNavigationBarItem(
-            icon: _currrentIndex == 4
-                ? const Icon(Icons.badge_rounded, size: 26)
-                : const Icon(Icons.badge_outlined, size: 26),
-            label: 'Jobs',
+            icon: _currrentIndex == 3
+                ? const Icon(Icons.account_circle_sharp, size: 26)
+                : const Icon(Icons.account_circle_sharp, size: 26),
+            label: 'Profile',
           ),
         ],
       ),

@@ -23,6 +23,7 @@ class HomeTok extends StatelessWidget {
                 proj.fundings_recieved,
                 proj.fundings_needed,
                 proj.organisation,
+                proj.likes,
               ),
             )
             .toList(),
